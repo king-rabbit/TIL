@@ -94,5 +94,46 @@ blue.nextElementSibling; // 다음 형제 요소 노드 반환
 ## 노드 수정하기
 
 ```jsx
+const blue = document.getElementById('blue');
 
+const blueTextNode = blue.firstChild;
+
+// 노드 값 가져오기 (텍스트인 경우만 가능)
+blueTextNode.nodeValue; // 'Blue' 
+// 노드 값 수정하기 (텍스트인 경우만 가능)
+blueTextNode.nodeValue = '파랑';
+
+// 텍스트 value가 아닌 경우 값 수정하기
+const ul = document.getElementById('color');
+ul.innerHTML = '<li>RED</li>'; //마크업이 반영됨
+
+// 노드 생성하기 + 추가하기
+const newLi = document.creatElement('li');
+newLi.innerHTML = 'green';
+ul.appendChild(newLi); //새로 생성한 노드를 ul 태그에 자식 노드로 추가한다
+
+// 노드 value값과 함께 노드 추가하기
+const newLi2 = document.creatElement('li');
+const newText = document.createTextNode('pink');
+newLi2.appendChild(newText);
+ul.appendChild(newLi2);
+
+// 특정 노드 앞에 노드 추가하기
+const newLi3 = document.createElement('li');
+const textNode3 = document.createTextNode('black');
+newLi3.appendChild(textNode3);
+const red = document.getElementById('red');
+ul.insertBefore(newLi3, red); // red앞에 newLi3 노드 삽입
+
+ul.appendChild(red); //red 노드가 맨 뒤로 이동
+
+// 노드 복제하기
+const newBlack = newLi3.cloneNode(); //노드 자신만 복제됨(자식 노드 복제 안됨)
+ul.appendChild(newBlack); 
+const newBlack2 = newLi3.cloneNode(true); //깊은 복제(자식 노드까지 모두 복제)
+ul.appendChild(newBlack2); 
+
+// 노드 삭제하기
+ul.removeChild(red);
+ul.removeChild(ul.firstElementChild);
 ```
