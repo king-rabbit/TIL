@@ -137,3 +137,41 @@ ul.appendChild(newBlack2);
 ul.removeChild(red);
 ul.removeChild(ul.firstElementChild);
 ```
+
+# Event Handler
+
+- 핸들러: 이벤트에 특정 함수를 할당해서 실행해주는 것
+
+```jsx
+// 버튼에 이벤트 할당하기
+<button id='btn2'>클릭</button>
+<button id='btn4'>클릭</button>
+<script>
+	function sayHello() {
+		alert('Hello');
+	}
+
+	const el = document.getElementById('btn2');
+	el.onclick = sayHello();
+
+	const el2 = document.getElementById('btn4');
+	el2.addEventListener('click', sayHello); //특정 이벤트가 발생하면 핸들러(즉, 함수)를 실행
+  // 또는 아래와 같이 함수를 직접 작성
+	el2.addEventListener('click', () => {
+				alert('hi');												
+			});
+
+</script>
+```
+
+- addEventListener를 사용하면 html과 자바스크립트를 분리할 수 있음
+- 일부 이벤트는 반드시 addEventListener를 사용해야 함 (아래 예시)
+
+```jsx
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+			document.body.style.backgroundColor = 'red';
+		}
+	)
+</script>
+```
