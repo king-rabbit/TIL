@@ -29,3 +29,29 @@
     - cat .bash_history: bash에서 작성한 명령문을 모두 출력
 - history: 명령문 히스토리를 모두 출력
     - echo HISTTIMEFORMAT = ‘%d/%m/%y %T’ >> .bashrc : 명령문 히스토리의 시간 포맷을 정해줌 → 이후 history 명령문 실행하면 시간도 같이 출력
+    
+
+### 패키지 매니저
+
+- 프로그램을 다운로드/설치/제거 등을 담당하는 게 패키지 매니저
+- 대표적인 패키지 매니저: apt / yum
+- 패키지에서 최신상태 소프트웨어 목록 다운로드
+    - sudo apt-get update
+- 소프트웨어 검색
+    - sudo apt-cache search 검색어
+- 소프트웨어 다운로드
+    - sudo apt-get install 프로그램명
+- 소프트웨어 업그레이드
+    - sudo apt-get upgrade 프로그램명
+    - 프로그램명을 입력하지 않으면 업그레이드 가능한 모든 프로그램에 대해 업그레이드 진행
+- 소프트웨어 제거
+    - sudo apt-get remove 프로그램명
+
+## Shell
+
+### Shell vs. Kernel
+
+- 커널: 하드웨어를 직접 제어
+- 쉘: 유저의 명령어를 해석해서 커널에게 전달
+- 대표적인 쉘 프로그램: bash, zsh
+- echo $0 : 현재 사용하고 있는 쉘 확인
