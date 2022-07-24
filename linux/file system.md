@@ -5,7 +5,7 @@
 
 ### Filesystem Hierarchy Standard
 
-- /bin : binaries, user executable files
+- /bin : binaries, user executable files. 명령어의 실행 파일. 특히 시스템과 관련된 중요도가 높은 명령어 포함.
 - /sbins : 슈퍼유저만 접근가능한 applications
 - /boot : 시스템을 부팅하는 데 필요한 파일들
 - /home : 각 유저의 home 디렉토리가 모아져 있는 곳. (root 유저의 홈 디렉토리는 /root)
@@ -29,4 +29,31 @@
 - absolute path : 절대 주소. 항상 / 로 시작함.
 - . : 현재 디렉토리
 - .. : 부모 디렉토리
--
+
+### ls command
+
+- 폴더에 있는 파일 리스트 출력
+- ls 폴더 경로
+- ls -1 : 파일을 한줄로 출력
+- ls -l : 파일 상세 정보 함께 출력
+    - 첫 컬럼으로 파일의 종류 확인: -면 일반 파일, d면 폴더, l이면 symbolic link
+    - 3,4번째 컬럼은 소유자
+    - 5번째 컬럼은 파일 크기
+    - 6번째 컬럼부터는 파일 수정 일자 및 시각
+- ls -lh : 파일 사이즈의 단위와 함께 출력
+- ls -d : 폴더 정도만 출력
+- ls -la : 숨긴 파일도 모두 출력
+- ls -lhS: 파일을 크기 순으로 출력
+- sudo du -sh 폴더 경로 : 폴더 사이즈 출력
+- ls -l -X : extention 순으로 정렬
+- ls —hide=*.conf 폴더 경로 : .conf로 끝나는 파일은 출력 제외
+- ls -lR: reculsively하게 출력. 즉, 해당 폴더 아래에 있는 서브 폴더에 있는 파일도 모두 출력.
+
+### File Timestamps
+
+- atime : access timestamp. 파일이 읽힌 마지막 시각.(ls -lu)
+- mtime: 파일 내용이 변경된 마지막 시각.(ls -l, ls -lt)
+- ctime: 파일의 메타 데이터가 변경된 마지막 시각.(ls -lc)
+- 리눅스 파일 시스템은 1970년 1월 1일 자정을 기점으로 시간을 계산
+- stat 파일 경로 : 파일에 대한 통계 제공
+- touch 명령어: 파일 시간을 바꾸거나 해당 이름의 파일이 없으면 그 이름을 가진 empty 파일을 만듬
